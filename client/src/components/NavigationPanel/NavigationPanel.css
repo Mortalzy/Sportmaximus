@@ -1,0 +1,24 @@
+.navigation {
+    font-size: 20px;
+}
+
+.navigation__list {
+    display: flex;
+    gap: 25px;
+}
+
+navigation__list-item {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation__list-item .list-item__link {
+    color: var(--color-black);
+    
+}
+
+.list-item__content {
+    display: flex;
+    gap: 10px;
+    
+}

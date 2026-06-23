@@ -1,0 +1,13 @@
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-family-black);
+    font-weight: var(--weight-regular);
+
+    background-color: var(--color-bg);
+
+    font-weight: var(--weight-regular);
+
+    color: var(--color-text);
+
+    line-height: var(--line-height-normal);
+}

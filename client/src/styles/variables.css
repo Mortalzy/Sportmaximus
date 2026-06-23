@@ -1,0 +1,19 @@
+:root {
+  --color-black: #0C1015;
+  --color-white: #FEFEFE;
+  --color-red: #D00100;
+  --color-light-grey: #F6F6F6;
+  --color-dark-grey: #A2A2A4;
+
+  --border: 1px solid var(--color-dark-grey);
+
+  --border-radius-button: 14px;
+
+  --font-family-text: 14px;
+
+  --font-family-base: "Manrope", sans-serif;
+
+  --line-height-normal: 1.4;
+
+  --weight-regular: 500;
+}

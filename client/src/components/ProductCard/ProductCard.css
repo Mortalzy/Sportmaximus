@@ -1,0 +1,38 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: var(--border);
+    
+    width: 250px;
+    height: 200px;
+
+    border-radius: 8px;
+
+    padding: 20px;
+}
+
+.product-card__image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.product-card__title {
+
+}
+
+.product-card__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-card__button {
+    border: var(--border);
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 5px 15px;
+}
