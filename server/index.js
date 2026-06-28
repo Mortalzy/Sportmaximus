@@ -1,22 +1,35 @@
 import express, { json } from 'express'
+import cors from 'cors'
 import dotenv from 'dotenv'
+
 import sequelize from './db.js'
+import './models/index.js'
+
 dotenv.config()
 
-const app = express()
-app.use(express.json())
+import productRoutes from './routes/productRoutes.js'
+import categoryRoutes from './routes/categoryRoutes.js'
+import authRoutes from './routes/authRoutes.js'
 
+const app = express()
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/user', (req, res) => {
-    res.json({id: 1, name: 'Maxim'})
-})
+app.use(express.json())
+app.use(cors())
+
+app.use('/api/product', productRoutes)
+app.use('/api/category', categoryRoutes)
+app.use('/api/auth', authRoutes)
 
 const start = async () => {
     try {
         await sequelize.authenticate()
         console.log("Подключено к БД")
+
+        await sequelize.sync({alter: true})
+        console.log("Таблицы синхронизированы");
+        
 
         app.listen(PORT, () => {
         console.log(`Сервер запущен на http://localhost:${PORT}`);

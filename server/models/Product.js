@@ -4,7 +4,13 @@ import sequelize from "../db.js";
 const Product = sequelize.define("Product", {
     id: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
         autoIncrement: true,
+    },
+
+    category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
     },
 
     name: {
@@ -27,3 +33,5 @@ const Product = sequelize.define("Product", {
     //     allowNull: true,
     // }
 })
+
+export default Product

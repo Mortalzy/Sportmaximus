@@ -6,7 +6,7 @@ password_hash
 first_name
 last-named
 phone
-role // Пока не сделал
+role 
 ----------------------------------------------
 Сессия - активная/не активная
 id
@@ -23,11 +23,11 @@ description
 ----------------------------------------------
 Товар
 id
-category_id // Пока не сделал
+category_id 
 name
 description
 price
-image_url
+image_url // Пока не сдеалал
 
 ----------------------------------------------
 Корзина
