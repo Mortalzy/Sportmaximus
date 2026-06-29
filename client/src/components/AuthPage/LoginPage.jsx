@@ -1,10 +1,14 @@
-import './AuthPage'
-import {loginUser} from "../../api/authApi.js"
+import './AuthPage.css'
 import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
+
+import {loginUser} from "../../api/authApi.js"
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { X } from 'lucide-react'
 
 const LoginPage = () => {
+    const navigate = useNavigate()
+    
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -27,12 +31,18 @@ const LoginPage = () => {
         setError("")
 
         try {
-            const response = await loginUser({
-                email: formData.email,
-                password: formData.password,
-            })
+            const data = await loginUser(formData)
 
-            console.log(response);
+            console.log(data);
+
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('user', JSON.stringify(data.user))
+
+            if (data.user.role === 'ADMIN') {
+                navigate('/admin')
+            } else {
+                navigate('/')
+            }
             
         } catch(e) {
             setError(e.response?.data?.message || "Произошла ошибка")
@@ -43,6 +53,10 @@ const LoginPage = () => {
     return (
         <div className='auth-page'>
             <div className='auth-card'>
+                <Link className="auth-close" to='/'>
+                    <X />
+                </Link>
+
                 <h1 className='auth-title'>Login</h1>
                 <p className='auth-subtitle'>Login with SPORTMAKSIMUS</p>
 
@@ -67,7 +81,7 @@ const LoginPage = () => {
 
                 </form>
 
-                <Link to="/" className='auth-switch'>No account? Register</Link>
+                <Link to="/register" className='auth-switch'>No account? Register</Link>
 
                 <p className='auth-message error'>{error}</p>
             </div>

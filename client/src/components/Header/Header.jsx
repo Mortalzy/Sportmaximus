@@ -1,31 +1,72 @@
-import {Menu, Search, User, Heart, ShoppingCart} from 'lucide-react'
+import {Menu, Search, User, Heart, ShoppingCart, ShieldUser} from 'lucide-react'
 
 import "./Header.css"
 import Button from "../Button/Button"
 import NavigationPanel from '../NavigationPanel/NavigationPanel'
 
 const Header = () => {
+
+    const confirmLogout = () => {
+        const isConfirmed = confirm("Are you sure to want logout from account?")
+
+        if (isConfirmed) {
+            localStorage.removeItem('user')
+            localStorage.removeItem('token')
+        }
+    }
+
     const defaultNavigation = [
-        {label: "Category"},
-        {label: "Stocks"},
-        {label: "About us"},
-        {label: "Contacts"},
+        {
+            label: "Category",
+            to: '/category'
+        },
+
+        {
+            label: "Stocks",
+            to: '/stocks',
+        },
+
+        {
+            label: "About us",
+            to: '/about',
+        },
+
+        {
+            label: "Contacts",
+            to: '/contacts'
+
+        },
     ]
 
     const userNavigation = [
         {
             icon: <User/>,
             label: "Login",
+            to: '/login',
+            confirmLogout,
+            
         },
+
         {
             icon: <Heart/>,
             label: "Favorites",
+            to: '/favorites'
         },
+
         {
             icon: <ShoppingCart/>,
             label: "Basket",
+            to: '/basket',
+        },
+
+        {
+            icon: <ShieldUser/>,
+            label: "Admin Panel",
+            to: '/admin',
         },
     ]
+
+    
 
     return (
         <header className="header">

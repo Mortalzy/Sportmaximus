@@ -1,8 +1,9 @@
-import "./AuthPage"
+import "./AuthPage.css"
 import Button from "../Button/Button"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import {loginUser, registerUser} from '../../api/authApi.js'
+import {X} from 'lucide-react'
 
 
 const RegistrationPage = () => {
@@ -33,13 +34,9 @@ const RegistrationPage = () => {
         setError("")
 
         try {
-            const response = await registerUser({
-                first_name: formData.first_name,
-                second_name: formData.second_name,
-                phone: formData.phone,
-                email: formData.email,
-                password: formData.password,
-            })
+            const response = await registerUser(formData)
+
+            alert("Вы успешно зарегистрировались! Теперь войдите в аккаунт)")
 
             console.log(response);
             
@@ -53,6 +50,10 @@ const RegistrationPage = () => {
     return (
         <div className="auth-page">
             <div className="auth-card">
+                <Link className="auth-close" to='/'>
+                    <X />
+                </Link>
+
                 <h1 className="auth-title">Registration</h1>
                 <p className="auth-subtitle">Register with SPORTMAKSIMUS</p>
 

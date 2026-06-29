@@ -1,0 +1,140 @@
+.admin-page {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 40px 20px;
+}
+
+.admin-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.admin-header h1 {
+    font-size: 34px;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.admin-header p {
+    color: #666666;
+    font-size: 15px;
+}
+
+.admin-logout-button {
+    border: none;
+    background: #111111;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.admin-logout-button:hover {
+    background: #333333;
+}
+
+.admin-card {
+    max-width: 650px;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 34px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.admin-card h2 {
+    font-size: 26px;
+    margin-bottom: 24px;
+    color: #111111;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.admin-form-group input,
+.admin-form-group textarea {
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    outline: none;
+    font-family: inherit;
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus {
+    border-color: #e60023;
+}
+
+.admin-form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.admin-submit-button {
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: #e60023;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.admin-submit-button:hover {
+    background: #c9001e;
+}
+
+.admin-message {
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+}
+
+.admin-message.success {
+    color: green;
+}
+
+.admin-message.error {
+    color: #e60023;
+}
+
+@media (max-width: 700px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .admin-card {
+        padding: 24px;
+    }
+
+    .admin-header h1 {
+        font-size: 28px;
+    }
+}
